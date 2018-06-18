@@ -1,0 +1,36 @@
+<AppScreen>
+	BoxLayout:
+		orientation: "horizontal"
+		size: 600, 200
+		Button:
+			size: 100, 200
+			background_color:(0,0,0,1)
+			on_release:root._open_link()
+			Image:
+				source: "./resources/logo.png"
+				pos:self.parent.pos
+				width:self.parent.width
+				height:self.parent.height
+				id: ce_logo
+		Label:
+			text:"[size=20]Magpie[/size]\nver:0.1"
+			markup: True
+			size_hint: None, None
+			size: 500, 100
+			pos_hint: {"center_y": 0.5, "center_x": 0.5}
+		
+	#BoxLayout:
+	#	orientation: "vertical"
+	#	id: box_2
+	#	Button:
+	#		text: 'Selecione a Pasta'
+	#		on_release: root._folder_dialog()
+	#		size_hint: None, None
+	#		size: 150, 50
+	#		pos_hint: {"center_x": 0.5, "center_y": 0.5}
+	#		id: folder_button
+	#	Label:
+	#		text: "Pasta selecionada: " + root.default_folder
+	#		size: 600, 30
+	#		size_hint: None, None
+	#		id: text_input
