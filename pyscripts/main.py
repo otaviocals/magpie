@@ -16,11 +16,13 @@ from kivy.config import Config
 from kivy.core.window import Window
 from kivy.uix.gridlayout import GridLayout
 from kivy.lang import Builder
+from kivy.garden.mapview import MapView, MapMarker
 from os.path import join, isdir, expanduser, isfile
 from sys import platform
 import sys
 import os
 import webbrowser
+
 
 
 ######################
@@ -34,7 +36,7 @@ Config.set("kivy","log_level","info")
 Config.set("graphics","position","custom")
 Config.set("graphics","top","50")
 Config.set("graphics","left","10")
-Config.set("graphics","width","450")
+Config.set("graphics","width","700")
 Config.set("graphics","height","600")
 Config.set("graphics","fullscreen","0")
 Config.set("graphics","borderless","0")
@@ -86,19 +88,20 @@ class AppScreen(GridLayout):
 	global sel_folder
 	sel_folder = default_folder
 	
+	
 #Setting window layout
 
 	def __init__(self,**kwargs):
 		super(AppScreen, self).__init__(**kwargs)
 
-		Window.size = (600,450)
+		Window.size = (600,900)
 		Window.set_title("Magpie")
 
 
 		self.cols = 1
 		self.size_hint = (None,None)
 		self.width = 600
-		self.height = 450
+		self.height = 900
 		self.icon = logo_path
 		self.ids.ce_logo.source = logo_path
 		
@@ -134,6 +137,10 @@ class AppScreen(GridLayout):
 
 	def _folder_dialog(self):
 		XFolder(on_dismiss=self._filepopup_callback, path=expanduser(u'~'))
+		
+#Map Functions
+
+		
 
 ######################
 #	Starting App	#
